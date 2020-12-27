@@ -23,10 +23,6 @@ module Antlr4Native
       write_interop_file
     end
 
-    def gem_name
-      @gem_name ||= dasherize(parser_ns)
-    end
-
     def antlr_ns
       grammar_names['parser'] || grammar_names['default']
     end
@@ -415,11 +411,11 @@ module Antlr4Native
     end
 
     def antlrgen_dir
-      @antlrgen_dir ||= File.join(output_dir, gem_name, 'antlrgen')
+      @antlrgen_dir ||= File.join(output_dir, 'antlrgen')
     end
 
     def interop_file
-      @interop_file ||= File.join(output_dir, gem_name, "#{ext_name}.cpp")
+      @interop_file ||= File.join(output_dir, "#{ext_name}.cpp")
     end
 
     def grammar_names
